@@ -3,6 +3,7 @@ const divide = require('./divide');
 const multiply = require('./multiply');
 const subtract = require('./subtract');
 
+// создаём экземпляр
 const EventEmitter = require('events');
 const myEmitter = new EventEmitter();
 
