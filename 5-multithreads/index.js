@@ -15,7 +15,7 @@ const computeLinearPerf = () => {
 
         performance.mark('simple compute start')
         
-        for(let i = 1; i <= 300000000; i++) {
+        for(let i = 1; i <= 300000; i++) {
             if( i % 3 === 0 ) {
                 result.push(i)
             }
@@ -32,7 +32,7 @@ const computeMultiPerf = () => {
     return new Promise((resolve, reject) => {
         // подготавливаем данные для вычислений
         const cores = 8
-        const amount = 300000000;
+        const amount = 300000;
         const separator = Math.floor(amount / cores)
         const reminder = amount % cores
         const intervals = []
