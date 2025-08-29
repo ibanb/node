@@ -1,3 +1,4 @@
+const notifier = require('node-notifier');
 
 
 const hours = process.argv[2];
@@ -8,7 +9,7 @@ function setTimer(h, m, s) {
 
     const totalTime = +h * 60 * 60 + +m * 60 + +s
     const timer = setTimeout(() => {
-        console.log("ВРЕМЯ ВЫШЛО!")
+        notifier.notify('Время ВЫШЛО!');
     }, totalTime * 1000)
 
 }
