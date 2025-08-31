@@ -6,8 +6,8 @@ const app = express();
 
 
 app.get('/weather/:city', async (req, res) => {
+
     try {
- 
         const { data } = await axios.get('https://api.openweathermap.org/data/2.5/weather', {
             params: {
                 q: req.params.city,
@@ -16,17 +16,21 @@ app.get('/weather/:city', async (req, res) => {
                 units: 'metric'
             }
         })
-        
+
         res.json(data);
+
+    } catch(e) {
+        res.status(500).json({error: 'message'})
+    }
     
-       } catch(e) {
-        throw new Error('Error');
-       }
+    
+    
+    
 })
 
 app.use((err, req, res, next) => {
 
-    res.send(err.message)
+    res.status(500).send(err.message)
 
 
 })
