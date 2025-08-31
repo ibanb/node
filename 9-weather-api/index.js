@@ -20,8 +20,15 @@ app.get('/weather/:city', async (req, res) => {
         res.json(data);
     
        } catch(e) {
-        console.log(e)
+        throw new Error('Error');
        }
+})
+
+app.use((err, req, res, next) => {
+
+    res.send(err.message)
+
+
 })
 
 
